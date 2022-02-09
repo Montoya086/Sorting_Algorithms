@@ -13,7 +13,7 @@ import java.util.Iterator;
  * @author 
  * Andres E. Montoya W. - 21552
  * Diego E. Lemus L. - 21469
- * Fernanda Esquivel - ¿?
+ * Fernanda Esquivel - 21542
  *
  */
 
