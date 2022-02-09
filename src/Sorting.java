@@ -118,7 +118,7 @@ public class Sorting {
 	 * @param int end: limite superior del array
 	 */
 	public void mergeSort(int[] array, int begin, int end) {
-		if(begin >end) {
+		if(begin <end) {
 			int mid =1+(end-1)/2;
 			mergeSort(array, begin, mid);
 			mergeSort(array, mid+1, end);
