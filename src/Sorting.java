@@ -1,11 +1,8 @@
 /**
- * 
- */
-
-/**
  * @author Andres
  *
  */
+
 public class Sorting {
 	NumberCompareDesc compare;
 	
@@ -109,5 +106,41 @@ public class Sorting {
 			mergeSort(array, mid+1, end);
 			merge(array, begin, mid, end);
 		}
+	}
+	
+	public void radixSort(int[] array) {
+		int[][] temp = new int[10][array.length];
+		int[] tempNum = new int[10];
+		int max = 0;
+		
+		for(int i=0; i<array.length ; i++) {
+			if(array[i]>max) {
+				max = array[i];
+			}
+		}
+		
+		int maxLength = (max+"").length();
+		
+		for(int j = 0; j<array.length; j++) {
+			for(int k = 1; j<array.length; k*=10) {
+				for(int l = 0; l<array.length; l++) {
+					int digit = array[l]/k%10;
+					
+					temp[digit][tempNum[digit]] = array[l];
+					tempNum[digit]++;
+					
+				}
+				int index = 0;
+				
+				for(int m = 0; m<10; m++) {
+					for(int n=0; n<tempNum[m]; n++) {
+						array[index] = temp[m][n];
+						index++;
+					}
+					tempNum[m] = 0;
+				}
+			}
+		}
+		
 	}
 }
