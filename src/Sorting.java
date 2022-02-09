@@ -82,11 +82,11 @@ public class Sorting {
 		int num2 = right-mid;
 		int[] aleft = new int[num1];
 		int[] aright = new int[num2];
-		for(int i=0;i<num1;i++) {
+		for(int i=0;i<num1;++i) {
 			aleft[i]=array[left+i];
 		}
-		for(int i=0;i<num1;i++) {
-			aright[i]=array[mid+i+1];
+		for(int j=0;j<num2;++j) {
+			aright[j]=array[mid+j+1];
 		}
 		int i=0,j=0,p=left;	
 		while(i<num1 && j<num2) {
@@ -99,15 +99,15 @@ public class Sorting {
 			}
 			p++;
 		}
-		while(j<num2) {
-			array[p]=aright[j];
-			p++;
-			j++;
-		}
 		while(i<num1) {
 			array[p]=aleft[i];
 			p++;
 			i++;
+		}
+		while(j<num2) {
+			array[p]=aright[j];
+			p++;
+			j++;
 		}
 	}
 	
@@ -119,7 +119,7 @@ public class Sorting {
 	 */
 	public void mergeSort(int[] array, int begin, int end) {
 		if(begin <end) {
-			int mid =1+(end-1)/2;
+			int mid =begin+(end-begin)/2;
 			mergeSort(array, begin, mid);
 			mergeSort(array, mid+1, end);
 			merge(array, begin, mid, end);
