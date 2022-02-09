@@ -77,6 +77,11 @@ public class SortingMain {
 			sorting.radixSort(array, array.length);
 			endTime=System.currentTimeMillis();
 			break;	
+		case 5: 
+			strTime=System.currentTimeMillis();
+			sorting.gnomeSort(array, array.length);
+			endTime=System.currentTimeMillis();
+			break;	
 		default:
 			break;
 		}

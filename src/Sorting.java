@@ -199,4 +199,28 @@ public class Sorting {
 		}
 		
 	}*/
+	
+	/***
+	 * Sort que evalua el orden de los numeros, si esta incorrecto los intercambia y retrocede uno
+	 * @param int[] array: arreglo a ordenar
+	 * @param length: cantidad de numeros a ordenar
+	 */
+	public void gnomeSort(int[] array, int length){
+		int i = 0;
+		while (i < length){
+			if (i == 0){
+				i++;
+			}
+			if (array[i] >= array[i-1]){
+				i++;
+			}
+			else{
+				int temp = 0;
+				temp = array[i];
+				array[i] = array[i-1];
+				array[i-1] = temp;
+				i--;
+			}
+		}
+	}
 }
