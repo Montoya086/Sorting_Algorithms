@@ -1,15 +1,31 @@
 /**
- * @author Andres
+ * Class Sorting
+ * 
+ * Encargada de definir los Sort y sus respectivos procesos
+ * 
+ * @version 1.0, 08/02/2022
+ * 
+ * @author 
+ * Andres E. Montoya W. - 21552
+ * Diego E. Lemus L. - 21469
+ * Fernanda Esquivel - ¿?
  *
  */
 
 public class Sorting {
 	NumberCompareDesc compare;
 	
+	/***
+	 * Metodo Constructor Sorting
+	 */
 	public Sorting() {
 		compare =  new NumberCompareDesc();
 	}
 	
+	/***
+	 * Sort que evalua y compara cada elemento intercambiando su orden
+	 * @param int[] array: arreglo a ordenar
+	 */
 	public void bubleSort(int[] array) {
 		for (int i=0;i<array.length-1;i++) {					
 			for (int j=i+1;j<array.length;j++) {				
@@ -21,11 +37,12 @@ public class Sorting {
 			}
 		}
 	}
+	
 	/***
-	 * 
-	 * @param array arreglo a ordenar
-	 * @param inf limite inferior de el array
-	 * @param sup limite superior del array (.length -1)
+	 * Sort de comparacion con pivotes dividiendo el array
+	 * @param int[] array: arreglo a ordenar
+	 * @param int inf: limite inferior de el array
+	 * @param int sup: limite superior del array (.length -1)
 	 */
 	public void quickSort(int[] array, int inf, int sup) {
 		int i = inf -1;
@@ -55,10 +72,10 @@ public class Sorting {
 	}
 	/***
 	 * Realiza merge de un arreglo
-	 * @param array arreglo para hacer merge
-	 * @param left indice izquierdo
-	 * @param mid pivote medio
-	 * @param right indice derecho
+	 * @param int[] array: arreglo para hacer merge
+	 * @param int left: indice izquierdo
+	 * @param int mid: pivote medio
+	 * @param int right: indice derecho
 	 */
 	private void merge(int[] array, int left, int mid, int right) {
 		int num1 = mid-left+1;
@@ -93,11 +110,12 @@ public class Sorting {
 			i++;
 		}
 	}
+	
 	/***
 	 * Sort por medio de merge
-	 * @param array arreglo a ordenar
-	 * @param begin limite inferior del array
-	 * @param end limite superior del array
+	 * @param int [] array: arreglo a ordenar
+	 * @param int begin: limite inferior del array
+	 * @param int end: limite superior del array
 	 */
 	public void mergeSort(int[] array, int begin, int end) {
 		if(begin >end) {
@@ -108,6 +126,10 @@ public class Sorting {
 		}
 	}
 	
+	/***
+	 * Sort que evalua cada digito del numero en orden ascendente
+	 * @param int[] array: arreglo a ordenar
+	 */
 	public void radixSort(int[] array) {
 		int[][] temp = new int[10][array.length];
 		int[] tempNum = new int[10];

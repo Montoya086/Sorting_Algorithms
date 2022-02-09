@@ -1,11 +1,17 @@
 /**
+ * Interface IComparator
  * 
- */
-
-/**
- * @author Andres
+ * Interfaz que provee el metodo Compare a la clase NumberCompareDesc
+ * 
+ * @version 1.0, 08/02/2022
+ * 
+ * @author 
+ * Andres E. Montoya W. - 21552
+ * Diego E. Lemus L. - 21469
+ * Fernanda Esquivel - ¿?
  *
  */
+
 public interface IComparator {
 	public int Compare(int number1, int number2);
 }
