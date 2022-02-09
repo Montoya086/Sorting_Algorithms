@@ -25,11 +25,12 @@ public class Random_number_generator {
 	public static void main(String[] args) {
 		try {
 			//Sobreescribe el archivo
-			BufferedWriter bw = new BufferedWriter(new FileWriter("random.txt"));
-			for(int i=0;i<3000;i++) {
+			BufferedWriter bw = new BufferedWriter(new FileWriter("src//random.txt"));
+			for(int i=0;i<300000;i++) {
 				bw.write((int)(Math.random()*(3000-0+1)+0)+"\n");
 			}
 				bw.close();
+				System.out.println("numeros guardados");
 		}catch (Exception e) {
 			System.out.println("Ha ocurrido un error de tipo: "+e);
 		}
