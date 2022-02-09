@@ -50,7 +50,7 @@ public class SortingMain {
 			sorting.mergeSort(array, 0, array.length-1);
 			break;
 		case 4: 
-			sorting.radixSort(array);
+			sorting.radixSort(array, array.length);
 			break;	
 		default:
 			break;

@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * Class Sorting
  * 
@@ -125,12 +127,44 @@ public class Sorting {
 			merge(array, begin, mid, end);
 		}
 	}
-	
+	private int getMax(int[] array, int length) {
+		int max = array[0];
+		for(int i=1;i<length;i++) {
+			if(array[i]>max) {
+				max = array[i];
+			}
+		}
+		return max;
+	}
+	private void count(int[] array, int length, int p) {
+		int res[]=new int[length];
+		int cont[] = new int[10];
+		Arrays.fill(cont, 0);
+		for(int i=0;i<length;i++) {
+			cont[(array[i]/p)%10]++;
+		}
+		for(int i=1;i<10;i++) {
+			cont[i]+=cont[i-1];
+		}
+		for(int i = length-1;i>=0;i--) {
+			res[cont[(array[i]/p)%10]-1]=array[i];
+			cont[(array[i]/p)%10]--;
+		}
+		for(int i=0; i<length;i++) {
+			array[i]=res[i];
+		}
+	}
+	public void radixSort(int[] array, int length) {
+		int max = getMax(array, length);
+		for(int p=1;max/p>0;p*=10) {
+			count(array, length, p);
+		}
+	}
 	/***
 	 * Sort que evalua cada digito del numero en orden ascendente
 	 * @param int[] array: arreglo a ordenar
 	 */
-	public void radixSort(int[] array) {
+	/*public void radixSort(int[] array) {
 		int[][] temp = new int[10][array.length];
 		int[] tempNum = new int[10];
 		int max = 0;
@@ -164,5 +198,5 @@ public class Sorting {
 			}
 		}
 		
-	}
+	}*/
 }
