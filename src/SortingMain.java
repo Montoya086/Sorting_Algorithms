@@ -25,10 +25,20 @@ public class SortingMain {
 		Sorting sorting = new Sorting();
 		Scanner scanner = new Scanner(System.in);
 		int[] array = new int[300000];
-		System.out.println("1. Abrir numeros random");
-		System.out.println("2. Abrir numeros ordenados");
+		boolean flag = false;
 		int opt1 =0;
-		opt1 = Integer.parseInt(scanner.nextLine());
+		while(flag == false) {
+			System.out.println("1. Abrir numeros random");
+			System.out.println("2. Abrir numeros ordenados");
+			opt1 = Integer.parseInt(scanner.nextLine());
+			if (opt1 == 1 || opt1 == 2) {
+				flag = true;
+			}
+			else {
+				System.out.println("Esa opcion no existe, intentelo de nuevo.");
+				flag = false;
+			}	
+		}		
 		try {
 			FileReader r;
 			if(opt1==1) {
@@ -56,6 +66,7 @@ public class SortingMain {
 		long endTime=0;
 		long time=0;
 		opt = Integer.parseInt(scanner.nextLine());
+		flag = true;
 		switch (opt) {
 		case 1: 
 			strTime=System.currentTimeMillis();
@@ -83,21 +94,24 @@ public class SortingMain {
 			endTime=System.currentTimeMillis();
 			break;	
 		default:
+			System.out.println("Esa opcion no existe, intentelo de nuevo.");
+			flag = false;
 			break;
 		}
-		System.out.println(endTime-strTime+"ms");
-		try {
-			//Sobreescribe el archivo
-			BufferedWriter bw = new BufferedWriter(new FileWriter("src//Sortednumbers.txt"));
-			for(int i=0;i<array.length;i++) {
-				bw.write(array[i]+"\n");
+		if (flag == true) {
+			System.out.println(endTime-strTime+"ms");
+			try {
+				//Sobreescribe el archivo
+				BufferedWriter bw = new BufferedWriter(new FileWriter("src//Sortednumbers.txt"));
+				for(int i=0;i<array.length;i++) {
+					bw.write(array[i]+"\n");
+				}
+					bw.close();
+					System.out.println("numeros guardados");
+			}catch (Exception e) {
+				System.out.println("Ha ocurrido un error de tipo: "+e);
 			}
-				bw.close();
-				System.out.println("numeros guardados");
-		}catch (Exception e) {
-			System.out.println("Ha ocurrido un error de tipo: "+e);
-		}
-		
+		}	
 
 	}
 
